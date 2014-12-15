@@ -3,6 +3,8 @@ ENV
 env
 
 .svn
+.project
+.pydevproject
 
 *.pyc
 *.pyo
