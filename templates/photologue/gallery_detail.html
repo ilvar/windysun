@@ -1,0 +1,45 @@
+{% extends "photologue/root.html" %}
+
+{% block title %}{{ block.super }} | {{ object.meta_title|default:object.title }}{% endblock %}
+
+{% block content %}
+
+<h2>{{ object.title }}</h2>
+{% if object.description %}<p>{{ object.description }}</p>{% endif %}
+<ul class="photos">
+    {% for photo in object.public %}
+
+    <li>
+        <a href="{{ photo.get_display_url }}" rel="gallery_{{ object.pk }}">
+        <img src="{{ photo.get_thumbnail_url }}" alt="{{ photo.get_title|default:"Без названия" }}"/>
+        {% if photo.get_title %}<span>{{ photo.get_title }}</span>{% endif %}
+        </a>
+    </li>
+
+    {% endfor %}
+</ul>
+
+                                <div class="comments">
+                                    <h2><span>Комментарии</span></h2>
+                                    {% load comments %}
+                                    {% get_comment_list for photologue.gallery object.id as comment_list %}
+                                    {% if comment_list %}
+                                    <ul>
+                                        {% for comment in comment_list %}
+                                        {% if comment.is_public %}
+                                        <li>
+                                            <h3><b>{{ comment.user_name }}</b><a href="{{ comment.person_url }}">Сайт</a><span>{{ comment.submit_date|date:"P" }} {{ comment.submit_date|date:"F j, Y" }}</span></h3>
+                                            <p>{{ comment.comment }}</p>
+                                        </li>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+
+                                      {% ifnotequal object.get_status_display 'Closed' %}
+                                        {% render_comment_form for photologue.gallery object.id %}
+                                      {% endifnotequal %}
+                                </div>
+
+
+{% endblock %}

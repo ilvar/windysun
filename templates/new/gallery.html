@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>Web-based sufr school Windysun | Windysun</title>
+    <meta charset="utf-8">
+		<meta name="title" content="Time-Tracking Software Administration Guide"/>
+		<meta name="keywords" content="web timesheet, web based timesheet, timesheet software, online timesheet,  web based time tracking, time tracking software, time tracker, online time tracking, free timesheet"/>
+		<meta name="description" content="Learn how to install actiTIME web based timesheet. System requirements, upgrade instructions, database backup procedure."/>
+    </head>
+
+    <style>
+    
+    * {
+      font-family: Arial, "Helvetica Neue", Trebuchet MS, Helvetica, sans-serif !important;
+}
+
+    .header{
+		margin: 0px auto;
+    	position: static;
+		background: #f8f9f9;
+		}
+		.header_all{
+		margin: 0px auto;
+		width: 940px;    
+		height: 122px;
+		}
+
+
+    .logo{
+    	float: left;
+    	padding-top: 20px;
+    }
+
+        .name_surf{
+    	float: left;
+    	padding-top: 20px;
+    	padding-left: 22px;
+    }
+
+    .name_header_school{
+    	padding-left: 22px;
+    	font-size: 35px;
+		font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+font-weight: 900;
+line-height: 0;
+text-decoration: none;
+    }
+        .name_header_surf{
+    	padding-left: 22px;
+    	font-size: 46px;
+font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+   	font-weight: 900;
+    	line-height: 0;
+text-decoration: none;
+    	   }
+.language {
+	float: right;
+	padding-top: 25px;
+    padding-left: 80px;
+
+}
+.lng{
+	padding-bottom: 7px;
+}
+.menu {
+color: #FFF;
+height: 57px;
+width: 100%;
+min-width: 940px;
+font-size: 14px;
+text-decoration: none;
+background: #fff;
+top: 122px;
+}
+
+.menu_all {
+margin: 0 auto;
+width: 940px;
+padding: 0;
+height: 3em;
+list-style: none;
+}
+
+.all_nav
+{
+display: block;
+position: relative;
+width: auto;
+height: 25px;
+float: left;
+padding: 10px 32px 0 0;
+}
+.all_nav_price
+{
+display: block;
+position: relative;
+width: auto;
+height: 25px;
+float: left;
+padding: 10px 21px 0 0;
+}
+.all_nav_1
+{
+display: block;
+position: relative;
+width: auto;
+height: 25px;
+float: left;
+padding: 10px 0 0 0;
+}
+
+a.button {
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  font-family: Trebuchet MS;
+  color: #000000;
+  font-size: 16px;
+  padding: 9px 15px 9px 15px;
+  text-decoration: none;
+  display: block;
+}
+
+a.button:hover {
+  background: #000000;
+  font-family: Trebuchet MS;
+  text-decoration: none;
+  color: white;
+}
+.fon {
+background-image:url(img/gallery_img.png);
+  background-position:50% 0%;
+  background-repeat:no-repeat;
+  display:block;
+  height:230px;
+  text-indent:-9999px;
+  -moz-background-size:cover;
+  -webkit-background-size:cover;
+  background-size:cover;
+
+
+}
+
+#button_onas {
+    display: block;
+  padding: 9px 15px 9px 15px;
+    background-color: #ffe800;
+    }
+.why {
+  height: 65px;
+  background-color: #02c7cf;
+    display:block;
+
+}
+.icons_h1 {
+    margin: 0px auto;
+  width: 170px;
+}
+.icons_h1_2 {
+  margin: 0px auto;
+    width: 300px;
+}
+.icons_h1_3 {
+    margin: 0px auto;
+  width: 400px;
+  height: 65px;
+line-height: 65px;
+
+}
+.icons {
+  float: left;
+      vertical-align: middle;
+      margin-top: 7px;
+}
+.text_h1 {
+color: white;
+font-family: Trebuchet bold, sans-serif;
+font-size: 36px;
+font-weight:bolder;
+text-transform:uppercase;
+  float: right;
+      margin-top: 12px;
+}
+.text_h2 {
+color: white;
+font-family: Trebuchet bold, sans-serif;
+font-size: 36px;
+font-weight:bolder;
+text-transform:uppercase;
+text-align: center;
+margin-top: 12px;
+
+}
+.fon_why{
+  background-image:url(img/why_bali_fon.png);
+  margin: auto;
+  background-repeat:no-repeat;
+  display:block;
+  width: 939px;
+  height:356px;
+
+  -moz-background-size:cover;
+  -webkit-background-size:cover;
+  background-size:cover;
+}
+.text_why {
+  margin: auto;
+    display:block;
+
+}
+p{margin: 0;}
+.why_parent_1 {
+  width: 400px;
+  height: 219px;
+  float: left;
+}
+.why_0 {
+width: 141px;
+height: 28px;
+float: left;
+text-align: right;
+display: block;
+color: #32e9fe;
+font-family: Trebuchet, sans-serif;
+font-size: 24px;
+font-weight:bolder;
+padding: 35px 0 0 0;
+}
+.why_1 {
+width: 250px;
+height: 28px;
+float: left;
+display: block;
+color: #02c6cf;
+font-family: Trebuchet, sans-serif;
+font-size: 24px;
+padding: 35px 0 0 5px;
+}
+.why_2 {
+width: 400px;
+height: 152px;
+float: left;
+display: block;
+color: #02c6cf;
+font-family: Trebuchet, sans-serif;
+font-size: 20px;
+padding: 0 0 0 82px;
+}
+
+.why_parent_2 {
+  width: 162px;
+  height: 219px;
+  float: right;
+}
+.why_3 {
+width: 162px;
+height: 28px;
+float: left;
+text-align: right;
+display: block;
+color: #32e9fe;
+font-family: Trebuchet, sans-serif;
+font-size: 24px;
+font-weight:bolder;
+padding: 35px 0 0 0;
+}
+.why_4 {
+width: 162px;
+height: 22px;
+text-align: right;
+float: left;
+display: block;
+color: #02c6cf;
+font-family: Trebuchet, sans-serif;
+font-size: 18px;
+}
+.why_parent_3 {
+  width: 355px;
+  height: 219px;
+  float: right;
+}
+.why_5 {
+width: 355px;
+height: 28px;
+float: left;
+text-align: left;
+display: block;
+color: #32e9fe;
+font-family: Trebuchet, sans-serif;
+font-size: 24px;
+font-weight:bolder;
+padding: 35px 0 0 100px;
+}
+.why_6 {
+width: 355px;
+height: 22px;
+text-align: left;
+float: left;
+display: block;
+color: #02c6cf;
+font-family: Trebuchet, sans-serif;
+font-size: 18px;
+padding: 0 0 0 100px;
+}
+.why_parent_4 {
+  width: 300px;
+  height: 100px;
+  float: left;
+}
+.why_8 {
+width: 355px;
+height: 28px;
+float: left;
+text-align: right;
+display: block;
+color: #32e9fe;
+font-family: Trebuchet, sans-serif;
+font-size: 24px;
+font-weight:bolder;
+padding: 0 0 0 50px;
+}
+.why_7 {
+width: 355px;
+height: 30px;
+text-align: right;
+float: left;
+display: block;
+color: #02c6cf;
+font-family: Trebuchet, sans-serif;
+font-size: 24px;
+padding: 0 0 0 50px;
+}
+.why_parent_5 {
+  width: 300px;
+  height: 100px;
+  float: right;
+
+}
+.why_9 {
+width: 110px;
+height: 28px;
+float: right;
+text-align: left;
+display: block;
+color: #32e9fe;
+font-family: Trebuchet, sans-serif;
+font-size: 60px;
+font-weight:bolder;
+}
+.why_10 {
+width: 300px;
+height: 30px;
+text-align: left;
+float: right;
+display: block;
+color: #02c6cf;
+font-family: Trebuchet, sans-serif;
+font-size: 24px;
+padding: 0 0 0 0px;
+}
+.menu_second {
+
+background: #bbfff9;
+}
+.menu_second-1 {
+  display: block;
+  height: 50px;
+  text-decoration: none;
+  margin: 0 auto;
+width: 900px;
+list-style: none;
+}
+
+a.button_1 {
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+font-family: Trebuchet, sans-serif;
+  font-weight:bolder;
+  color: #000000;
+  font-size: 15px;
+  padding: 5px;
+  text-decoration: none;
+  display: block;
+}
+
+a.button_1:hover {
+  background: #ffe800;
+font-family: Trebuchet, sans-serif;
+  font-weight:bolder;
+  text-decoration: none;
+  color: #000000;
+}
+
+.fon_why_we {
+width: 900px;
+height: 400px;
+margin: 0 auto;
+overflow: hidden;
+background-color: #e8fffd;
+}
+.column_why_we_1 {
+  float: left;
+  width: 30px;
+  height: 264px;
+  display: inline-block;
+  padding-top: 60px;
+}
+.column_why_we_3 {
+width: 500px;
+height: 264px;
+display: inline-block;
+font-family: Trebuchet, sans-serif;
+font-weight:bolder;
+text-decoration: none;
+font-size: 20px;
+color: #003d60;
+padding-left: 10px;
+  padding-top: 60px;
+
+}
+.column_why_we_2 {
+  padding-top: 20px;
+float: right;
+width: 332px;
+height: 332px;
+display: inline-block;
+}
+
+.text_content {
+width: 900px;
+margin: 0 auto;
+overflow: hidden;
+font-family: Trebuchet, sans-serif;
+font-size: 15px;
+color: #707070;
+text-align: justify;
+}
+.column_surf {
+  display: inline-block;
+  width: 22%;
+  text-align: center;
+  margin: 1%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-top: 20px;
+  vertical-align: top;
+}
+
+.column_surf img {
+ width: 90%;
+}
+
+.column_gallery {
+  display: inline-block;
+  width: 22%;
+  text-align: center;
+  margin: 1%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-top: 20px;
+  vertical-align: top;
+  font-size: 10px;
+}
+
+.footer {
+      width: 960px;
+      height: 50px;
+      margin: 0 auto;
+      overflow: hidden;
+
+    }
+.column_footer_1 {
+  display: inline-block;
+  width: 127px;
+  height: 40px;
+  margin-left: 6px;
+font-family: Trebuchet bold, sans-serif;
+font-size: 12px;
+
+}
+.column_footer {
+  display: inline-block;
+  width: 150px;
+  height: 30px;
+  font-family: Trebuchet bold, sans-serif;
+  font-size: 12px;
+  text-align: right;
+  padding-left: 30px;
+  padding-right: 10px;
+  border-right:1px solid #000;
+  margin-top: 13px;
+  margin-left: 6px;
+  vertical-align: top;
+}
+.column_footer_2 {
+  display: inline-block;
+  width: 120px;
+  height: 30px;
+  font-family: Trebuchet bold, sans-serif;
+  font-size: 12px;
+  margin-top: 13px;
+  margin-left: 6px;
+  vertical-align: top;
+}
+.column_footer_3 {
+  display: inline-block;
+  width: 200px;
+  height: 30px;
+  font-family: Trebuchet bold, sans-serif;
+  font-size: 12px;
+    text-transform:uppercase;
+  padding-right: 10px;
+  border-right:1px solid #000;
+  margin-top: 13px;
+  margin-left: 6px;
+  vertical-align: top;
+}
+.column_footer_4 {
+  display: inline-block;
+  width: 36px;
+  height: 23px;
+  font-family: Trebuchet bold, sans-serif;
+  font-size: 14px;
+    text-transform:uppercase;
+  margin-top: 13px;
+  vertical-align: top;
+  border-radius: 5px;
+  background-color: yellow;
+  text-align: center;
+  padding-top: 7px;
+}
+.column_footer_5 {
+  display: inline-block;
+  width: 200px;
+  height: 30px;
+  font-family: Trebuchet bold, sans-serif;
+  font-size: 12px;
+  padding-right: 10px;
+  border-right:1px solid #000;
+  margin-top: 13px;
+  margin-left: 6px;
+  vertical-align: top;
+}
+
+.footer_2 {
+background: #ccc;
+margin-top: 15px;
+}
+
+.footer_2_center {
+  height: 40px;
+    margin: 0 auto;
+    overflow: hidden;
+  width: 940px;
+}
+.column_footer_left {
+  float: left;
+  width: 532px;
+  font-family: Trebuchet bold, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+    text-transform:uppercase;
+    padding-right: 25px;
+    margin-top: 14px;
+}
+
+.column_footer_social {
+  width: 170px;
+  display: inline-block;
+margin-top: 10px;
+}
+
+.column_footer_right {
+  float: right;
+    font-family: Trebuchet bold, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+  margin-top: 14px;
+}
+.soc_column {
+  display: inline-block;
+  width: 20px;
+}
+/*
+div.column_fon {
+  /* The background image must be 800px wide 
+  max-width: 1953px;
+}
+
+figure.fixedratio {
+  padding-top: 56.25%;  /* 450px/800px = 0.5625 
+
+  background-image: url(img/fon.png);
+  background-color: #d5eef3;
+  background-size: cover;
+  -moz-background-size: cover;  /* Firefox 3.6 
+  background-position: center;  /* Internet Explorer 7/8 
+}
+.mixin fluid-ratio($large-size, $small-size) {
+  $width-large: nth($large-size, 1);
+  $width-small: nth($small-size, 1);
+  $height-large: nth($large-size, 2);
+  $height-small: nth($small-size, 2);
+  $slope: ($height-large - $height-small) / ($width-large - $width-small);
+  $height: $height-small - $width-small * $slope;
+
+  padding-top: $slope * 100%;
+  height: $height;
+
+  background-size: cover;
+  -moz-background-size: cover;  /* Firefox 3.6 
+  background-position: center;  /* Internet Explorer 7/8 
+}
+
+figure.fluidratio {
+  /* This element will have fluid ratio from 4:1 at 800px to 2:1 at 300px. 
+  @include fluid-ratio(1953px 525px, 300px 81px);
+
+		  background-image: url(img/fon.png)
+		}
+*/
+    </style>
+
+<body>
+
+<div style="background: #f8f9f9;">
+	<div class="header_all">
+	<div class="logo"><a href="index.html"><img style="text-align:left" src="img/logo.png" alt="logo_windysun" width="266" height="77"/></a></div>
+	<div class="name_surf"><img style="text-align:left" src="img/name_surf.png" alt="МЕЖДУНАРОДНАЯ ШКОЛА СЕРФИНГА НА БАЛИ" width="555" height="79"/></div>
+<!--
+	<p class="name_header_school" style="font-stretch: ultra-expanded">МЕЖДУНАРОДНАЯ ШКОЛА</p>
+	<p class="name_header_surf" style="font-stretch: ultra-expanded">СЕРФИНГА НА БАЛИ</p>
+	</div>
+	-->
+	<div class="language">
+		<div class="lng"><a href="http://surfersbali.com/"><img style="text-align:left" src="img/rf_lng.png" alt="rf_windysun" width="16" height="16"/></a></div>
+		<div class="lng"><a href="http://surfersbali.com/"><img style="text-align:left" src="img/jp_lng.png" alt="jp_windysun" width="16" height="16"/></a></div>
+		<div class="lng"><a href="http://surfersbali.com/"><img style="text-align:left" src="img/gb_lng.png" alt="gb_windysun" width="16" height="16"/></a></div>
+	</div>
+	</div>
+</div>
+
+<div style="clear: both"></div>
+<div class="menu">
+<ul id="navigation-list" class="menu_all">
+									<li class="all_nav">
+                    <a class="button" href="onas.html"><span>О НАС</span></a>
+									</li>
+									<li class="all_nav">
+                    <a class="button" href="price.html" id="nav-trials-link"><span>НАШИ ЦЕНЫ</span></a>
+                  </li>
+      <li class="all_nav">
+                    <a id="button_onas" class="button" href="gallery.html"><span>ГАЛЕРЕЯ</span></a>
+                  </li>
+                  <li class="all_nav">
+                    <a class="button" href="faq.html" id="nav-support-link"><span>ПОЛЕЗНОЕ</span></a>
+                  </li>
+                  <li class="all_nav">
+                    <a class="button" href="blog.html">БЛОГ</a>
+                                </li>
+									<li class="all_nav">
+										<a class="button" href="partners.html">ПАРТНЕРЫ</a>
+									</li>
+									<li class="all_nav_1">
+										<a class="button" href="contacts.html">КОНТАКТЫ</a>
+									</li>
+</ul>
+</div>
+</div>
+<div style="clear: both"></div>
+<!--<div class="header">
+	<div class="column_fon">
+  <figure class="fixedratio"></figure>
+</div>-->
+<div class="fon">
+<p style="padding:10px 0 10px 0;">скоро открытие</div>
+
+<div style="clear: both"></div>
+  <div class="why">
+  <div class="icons_h1"style="text-align:center;">
+    <div class="text_h1">Галерея</div>
+  </div>
+  </div>
+
+  <div class="text_content">
+<div>
+  <div class="column_gallery">
+    <img src="img/_MG_2928_thumbnail.jpg" alt="" />
+    <h2>Отчет о майском серф кемпе</h2>
+  </div>
+  <div class="column_gallery">
+    <img src="img/_MG_2928_thumbnail.jpg" alt="" />
+    <h2>Практические уроки серфинга в Куте_thumbnail</h2>
+  </div>
+  <div class="column_gallery">
+    <img src="img/camp_surf_party.jpg" alt="" />
+    <h2>Kyte_thumbnail</h2>
+  </div>
+  <div class="column_gallery">
+    <img src="img/_MG_2928_thumbnail.jpg" alt="" />
+    <h2>Серф кадры марта</h2>
+  </div>
+</div>
+<div>
+  <div class="column_gallery">
+    <img src="img/_MG_2928_thumbnail.jpg" alt="" />
+    <h2>Отчет о майском серф кемпе</h2>
+  </div>
+  <div class="column_gallery">
+    <img src="img/_MG_2928_thumbnail.jpg" alt="" />
+    <h2>Практические уроки серфинга в Куте_thumbnail</h2>
+  </div>
+  <div class="column_gallery">
+    <img src="img/camp_surf_party.jpg" alt="" />
+    <h2>Kyte_thumbnail</h2>
+  </div>
+  <div class="column_gallery">
+    <img src="img/_MG_2928_thumbnail.jpg" alt="" />
+    <h2>Серф кадры марта</h2>
+  </div>
+</div>
+<div>
+  <div class="column_gallery">
+    <img src="img/_MG_2928_thumbnail.jpg" alt="" />
+    <h2>Отчет о майском серф кемпе</h2>
+  </div>
+  <div class="column_gallery">
+    <img src="img/_MG_2928_thumbnail.jpg" alt="" />
+    <h2>Практические уроки серфинга в Куте_thumbnail</h2>
+  </div>
+  <div class="column_gallery">
+    <img src="img/camp_surf_party.jpg" alt="" />
+    <h2>Kyte_thumbnail</h2>
+  </div>
+  <div class="column_gallery">
+    <img src="img/_MG_2928_thumbnail.jpg" alt="" />
+    <h2>Серф кадры марта</h2>
+  </div>
+</div>
+</div>
+<div>
+<hr noshade size="1" color="#d3d3d3">
+
+</div>
+<div class="footer">
+  <div class="column_footer_1">
+  <img style="margin: 5px 0 0 0;" src="img/logo_footer.png" alt="" />
+  </div>
+  <div class="column_footer">
+    <div>Бали: +62 8786 167 68 47</div>
+    <div>+62 81 936 126 701</div>
+  </div>
+  <div class="column_footer_5"><div>Москва: +7 903 779 71 82</div>
+  <div>e-mail: 
+<a href="windysun@surfersbali.com">
+  windysun@surfersbali.com</a></div></div>
+<div class="column_footer_3">
+  <div>Jalan Pantai Legian / Padma</div>
+  <div>Kuta - Bali - Indonesia</div>
+   </div>
+   <div class="column_footer_2">
+    <input type="search" style="border-radius: 5px;width: 114px;height: 29px;">
+   </div>
+   <div class="column_footer_4">OK</div>
+</div>
+
+<div class="footer_2">
+  <div class="footer_2_center">
+  <div class="column_footer_left">
+©  Copyright Windy Sun surf school - Международная школа серфинга на Бали 2009-2014
+  </div>
+  <div class="column_footer_social">
+  <div class="soc_column"><a href="http://vk.com/windysunsurfschool"><img src="img/logo_vk.png" alt=""></a></div>
+  <div class="soc_column"><a href="http://vk.com/windysunsurfschool"><img src="img/logo_fb.png" alt=""></a></div>
+  <div class="soc_column"><a href="http://vk.com/windysunsurfschool"><img src="img/logo_skype.png" alt=""></a></div>
+  <div class="soc_column"><a href="http://vk.com/windysunsurfschool"><img src="img/logo_tw.png" alt=""></a></div>
+  <div class="soc_column"><a href="http://vk.com/windysunsurfschool"><img src="img/logo_youtube.png" alt=""></a></div>
+  </div>
+  <div class="column_footer_right"><a href="http://vk.com/windysunsurfschool">Разработка сайта: Muffin Crew</a></div>
+  </div>
+</div>
+</body>
+</html>

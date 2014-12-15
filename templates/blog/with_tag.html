@@ -1,0 +1,22 @@
+{% extends "blog.html" %}
+
+{% block title %}{{ block.super }} | Поиск{% endblock %}
+
+{% block content_class %}search white{% endblock %}
+
+{% block content_onecolumn %}
+    <h2>Результаты поиска по тэгу <span class="search-text">«{{ tag }}»</span></h2>
+    <ul>
+        {% for entry in entries %}
+        <li>
+            <div class="title">
+                <h3><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></h3>
+            </div>
+            <div class="main">
+                <p>{{ entry.tease }}</p>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+    </form>
+{% endblock %}

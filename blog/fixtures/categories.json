@@ -1,0 +1,18 @@
+[
+    {
+        "model" : "blog.category",
+        "pk" : 1,
+        "fields" : {
+            "title" : "Art",
+            "slug" : "art"
+        }
+    },
+    {
+        "model" : "blog.category",
+        "pk" : 2,
+        "fields" : {
+            "title" : "Design",
+            "slug" : "design"
+        }
+    }
+]

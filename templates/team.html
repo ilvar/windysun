@@ -1,0 +1,51 @@
+{% extends "about.html" %}
+
+{% block title %}{{ block.super }} | Команда{% endblock %}
+
+{% block content_class %}command white serf-img two-column{% endblock %}
+
+{% block content %}
+    <p>Путешествуя по миру и занимаясь разными видами спорта мы нашли тот, который покорил нас навсегда — это серфинг.</p>
+    <h2><span>Инструкторы</span></h2>
+    <ul class="command-list">
+       {% for member in teacher_list %}
+        <li>
+            {% if member.big_text %}
+                <a href="{% url team_member member.slug %}">
+                    <img src="/media/{{ member.avatar }}" alt="{{ member.name }}" />
+                </a>
+            {% else %}
+                <img src="/media/{{ member.avatar }}" alt="{{ member.name }}" />
+            {% endif %}
+            <h3>{{ member.name }}</h3>
+            <i>{{ member.title }}</i>
+            <p>{{ member.text }}</p>
+            <p class="foot">языки: <span>{% if member.russian %}русский{% endif %} {% if member.english %}английский{% endif %}</span></p>
+        </li>
+       {% endfor %}
+    </ul>
+    <h2><span>Фото и видео</span></h2>
+    <ul class="command-list">
+        {% for member in operator_list %}
+        <li>
+            <img src="/media/{{ member.avatar }}" alt="{{ member.name }}" />
+            <h3>{{ member.name }}</h3>
+            <i>{{ member.title }}</i>
+            <p>{{ member.text }}</p>
+            <p class="foot">языки: <span>{% if member.russian %}русский{% endif %} {% if member.english %}английский{% endif %}</span></p>
+        </li>
+       {% endfor %}
+    </ul>
+    <h2><span>Водители</span></h2>
+    <ul class="command-list">
+        {% for member in driver_list %}
+        <li>
+            <img src="/media/{{ member.avatar }}" alt="{{ member.name }}" />
+            <h3>{{ member.name }}</h3>
+            <i>{{ member.title }}</i>
+            <p>{{ member.text }}</p>
+            <p class="foot">языки: <span>{% if member.russian %}русский{% endif %} {% if member.english %}английский{% endif %}</span></p>
+        </li>
+       {% endfor %}
+    </ul>
+{% endblock %}

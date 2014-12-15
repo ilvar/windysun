@@ -1,0 +1,17 @@
+.idea
+ENV
+env
+
+.svn
+
+*.pyc
+*.pyo
+*.py~
+settings_local.py
+windydb
+
+/db/
+/searchindex/
+/media/
+/media-admin/
+

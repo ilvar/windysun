@@ -1,0 +1,9 @@
+from windy.surfblog.models import *
+from django.contrib import admin
+
+
+
+admin.site.register(Photo)
+admin.site.register(AlbumComment)
+admin.site.register(Album)
+

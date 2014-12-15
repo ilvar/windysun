@@ -1,0 +1,47 @@
+[
+    {
+        "model" : "blog.post",
+        "pk" : 1,
+        "fields" : {
+            "title" : "My first blog post",
+            "slug" : "my-first-blog-post",
+            "author" : 1,
+            "body" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "tease" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "status" : 2,
+            "publish" : "2007-11-25 00:00:00",
+            "created" : "2007-12-01 00:00:00",
+            "categories": [1,2]
+        }
+    },
+    {
+        "model" : "blog.post",
+        "pk" : 2,
+        "fields" : {
+            "title" : "My second blog post",
+            "slug" : "my-second-blog-post",
+            "author" : 1,
+            "body" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "tease" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "status" : 1,
+            "publish" : "2007-11-25 01:00:00",
+            "created" : "2007-12-01 00:00:00",
+            "categories": [1,2]
+        }
+    },
+    {
+        "model" : "blog.post",
+        "pk" : 3,
+        "fields" : {
+            "title" : "My third blog post",
+            "slug" : "my-third-blog-post",
+            "author" : 1,
+            "body" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "tease" : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "status" : 2,
+            "publish" : "2100-11-25 01:00:00",
+            "created" : "2007-12-01 00:00:00",
+            "categories": [1,2]
+        }
+    }
+]

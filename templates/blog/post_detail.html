@@ -1,0 +1,86 @@
+{% extends "blog/base_blog.html" %}
+{% load comments tagging_tags markup%}
+
+{% block title %}{{ block.super }} | {{ object.meta_title|default:object.title }}{% endblock %}
+
+{% block meta %}
+    <meta http-equiv="imagetoolbar" content="no" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="{{ MEDIA_URL }}fancybox/jquery.mousewheel-3.0.2.pack.js"></script>
+    <script type="text/javascript" src="{{ MEDIA_URL }}fancybox/jquery.fancybox-1.3.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}fancybox/jquery.fancybox-1.3.1.css" media="screen" />
+    <script type="text/javascript" src="{{ MEDIA_URL }}js/script.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="right">
+    <h2>{{ object.title }}</h2>
+    <p>{{ object.tease }}</p>
+    <p><div class="formatted">{{ object.body|safe }}</div></p>
+
+
+    <ul class="photos">
+        {% for photo in object.gallery.public %}
+
+        <li>
+            <a  href="{{ photo.get_display_url }}" rel="gallery">
+            <img src="{{ photo.get_thumbnail_url }}" alt="{{ photo.get_title }}"/>
+            <span>{{ photo.get_title }}</span>
+            </a>
+        </li>
+
+        {% endfor %}
+    </ul>
+
+        <p>{{ object.get_share_links }}</p>
+
+        <div class="comments">
+            <h2><span>Комментарии</span></h2>
+            {% get_comment_list for blog.post object.id as comment_list %}
+            {% if comment_list %}
+            <ul>
+                {% for comment in comment_list %}
+                {% if comment.is_public %}
+                <li>
+                    <h3>
+                        <b>{{ comment.user_name }}</b>
+                        {% if comment.person_url %}<a href="{{ comment.person_url }}">Сайт</a>{% endif %}
+                        <span>{{ comment.submit_date|date:"H:s d.m.Y" }}</span>
+                    </h3>
+                    <p>{{ comment.comment }}</p>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+              {% ifnotequal object.get_status_display 'Closed' %}
+                {% render_comment_form for blog.post object.id %}
+              {% endifnotequal %}
+
+            <div id="fb-root"></div>
+            <script>(function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=343737539010087";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+
+            <div class="fb-comments" data-num-posts="5" data-width="420" data-href="http://surfersbali.ru{{ request.path }}"></div>
+
+            <!-- Put this script tag to the <head> of your page -->
+            <script type="text/javascript" src="http://userapi.com/js/api/openapi.js?49"></script>
+
+            <script type="text/javascript">
+                VK.init({apiId: 2887979, onlyWidgets: true});
+            </script>
+
+            <!-- Put this div tag to the place, where the Comments block will be -->
+            <div id="vk_comments"></div>
+            <script type="text/javascript">
+                VK.Widgets.Comments("vk_comments", {limit: 5, width: "420", attach: false});
+            </script>
+        </div>
+    </div>
+{% endblock %}

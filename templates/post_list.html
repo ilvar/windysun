@@ -1,0 +1,101 @@
+{% extends "blog/base_blog.html" %}
+
+{% comment %}
+{% block title %}Post archive{% endblock %}
+{% block body_id %}post_archive{% endblock %}
+
+
+{% block content %}
+  <h2 class="page_title">Post archive</h2>
+  
+  <div class="post_list">
+    {% for post in object_list %}
+    <div>
+      <h3 class="title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+      <p class="date">{{ post.publish|date:"Y F d" }}</p>
+      <p class="tease">{{ post.tease }}</p>
+    </div>
+    {% endfor %}
+  </div>
+  
+  {% if is_paginated %}
+  <p class="pagination">
+    {% if has_next %}
+    <a class="older" href="?page={{ next }}">Older</a>
+    {% endif %}
+    {% if has_next and has_previous %} | {% endif %}
+    {% if has_previous %}
+    <a class="newer" href="?page={{ previous }}">Newer</a>
+    {% endif %}
+  </p>
+  {% endif %}
+{% endblock %}
+{% endcomment %}
+
+
+
+{% block content %}
+{% load comments %}
+<ul class="articles">
+    {% for post in object_list %}
+    {% get_comment_count for post as comment_count %}
+    <li>
+    <a href="{{ post.get_absolute_url }}" class="img">
+	{% if post.abstr %}
+	<img src="/media/{{post.abstr}}" alt="{{post.title}}" />
+	{% else %}
+    {% for photo in post.gallery.sample|slice:sample_size %}
+    <img src="{{ photo.get_thumbnail_url }}" alt="{{ photo.title }}" />
+    {% endfor %}
+	{% endif %}
+    </a>
+    <div class="article-text">
+        <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+        <p>{{ post.tease }}</p>
+        <a href="{{ post.get_absolute_url }}">read more</a>
+        <a href="{{ post.get_absolute_url }}">comments {{comment_count}}</a>
+        <a href="{{ post.get_absolute_url }}">{{ post.publish|date:"Y F d" }}</a>
+	{{ post.get_share_links}}
+        </div>
+    </li>
+    {% endfor %}
+	
+</ul>  
+
+
+{% comment %}
+
+  {% if is_paginated %}
+  <p class="pagination">
+    {% if has_next %}
+    <a class="older" href="?page={{ next }}">Older</a>
+    {% endif %}
+    {% if has_next and has_previous %} | {% endif %}
+    {% if has_previous %}
+    <a class="newer" href="?page={{ previous }}">Newer</a>
+    {% endif %}
+  </p>
+  {% endif %}
+{% endcomment %}
+
+{% if is_paginated %}
+<ul class="pages">
+	
+    {% if has_previous %}
+    <li><a href="?page={{ previous }}">&#8592; backward</a></li>
+    {% endif %}
+    {% for p in page_range %}
+        {% if p == page %}
+            <li>{{ p }}</li>
+        {% else %}
+            <li><a href="?page={{ previous }}">{{ p }}</a></li>
+        {% endif %}
+    {% endfor %}
+	{% if has_next %}
+    <li><a href="?page={{ next }}">forward &#8594;</a></li>
+	{% endif %}
+
+</ul>
+{% endif %}
+
+{% endblock %}

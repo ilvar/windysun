@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block meta %}
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <link rel="stylesheet" type="text/css" href="/media/calendar/calendar.css" />
+    <script language="JavaScript" src="/media/calendar/calendar_eu.js"></script>
+{% endblock %}
+
+{% block title %}{{ block.super }} | Бронирование{% endblock %}
+
+{% block content %}
+    {% if success %}
+        <p style="font-size: 200%">Спасибо за заявку, мы скоро с Вами свяжемся!</p>
+    {% endif %}
+    <p>Если вы решились пройти обучение в нашей школе, заполните данную анкету, и скоро мы с вами свяжемся.</p>
+    <form class="reserv" action="." name="reservation" method="get">
+        <div>
+            <label for="name">Ваше имя<b class="star">*</b></label>
+            <input type="text" name="sender_name" value="" id="name" />
+            <label for="email">Ваш e-mail<b class="star">*</b></label>
+            <input type="text" name="sender_email" value="" id="email" />
+            <label for="date">
+                Дата
+                <script language="JavaScript">
+                new tcal ({
+                    // form name
+                    'formname': 'reservation',
+                    // input name
+                    'controlname': 'sender_date'
+                });
+
+                </script>
+                <b class="star">*</b></a>
+            </label>
+            <input type="text" name="sender_date" value="" id="date" />
+            <label for="info">Дополнительная информация</label>
+            <textarea id="info" name="sender_info"></textarea>
+            <input type="submit" name="" value="" id="reservSubmit" />
+        </div>
+    </form>
+{% endblock %}
+
+{% block menu %}
+    <ul class="links">
+            <li{% if path_bits.0 == 'prices' %} class="active"{% endif %}><a href="/prices/">Программы</a></li>
+            <li{% if path_bits.1 == 'private' %} class="active"{% endif %}><a href="/prices/private/">Индивидуальный урок</a></li>
+            <li{% if path_bits.1 == 'child' %} class="active"{% endif %}><a href="/prices/child/">Обучение детей</a></li>
+            <li{% if path_bits.1 == 'media' %} class="active"{% endif %}><a href="/prices/media/">Фото и видеосъемка</a></li>
+            <li{% if path_bits.0 == 'reservation' %} class="active"{% endif %}><a href="/reservation/">Бронирование</a></li>
+        </ul>
+{% endblock %}
+
+{% block content_class %}reservation white people two-column{% endblock %}

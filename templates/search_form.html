@@ -1,0 +1,21 @@
+<script type="text/javascript">
+function clickclear(thisfield, defaulttext) {
+if (thisfield.value == defaulttext) {
+thisfield.value = "";
+}
+}
+
+
+function clickrecall(thisfield, defaulttext) {
+if (thisfield.value == "") {
+thisfield.value = defaulttext;
+}
+}
+
+</script>
+<form class="search" action="/search/" method="get">
+    <div>
+        <input onclick="clickclear(this, 'поиск...')" onblur="clickrecall(this,'поиск...')" type="text" name="q" value="поиск..." id="searchText" />
+        <input type="submit" value="" id="searchSubmit" />
+    </div>
+</form>

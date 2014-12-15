@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}{{ block.super }} | Поиск{% endblock %}
+
+{% block content_class %}search white{% endblock %}
+{% block content_onecolumn %}
+    <h2>Результаты поиска по запросу <span class="search-text">«{{ query }}»</span></h2>
+    <ul>
+        {% for result in page.object_list %}
+        <li>
+        <div class="title">
+                <b>{{ forloop.counter }}</b>
+                <h3><a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a></h3>
+        </div>
+        <div class="main">
+                <p>{{ result.object.tease }}</p>
+        </div>
+        </li>
+        {% endfor %}
+    </ul>
+
+
+
+    <form action="." method="get">
+        {% csrf_token %}
+        <h2>Попробовать еще раз</h2>
+        <div>
+            <input type="text" name="q" value="{{ query }}" id="id_q" class="search-text" />
+            <input type="submit" name="" value="" class="search-submit" />
+        </div>
+    </form>
+
+{% endblock %}

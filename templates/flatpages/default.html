@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block meta %}
+    <meta name="keywords" content="{{ flatpage.customflatpage.meta_keywords }}" />
+    <meta name="description" content="{{ flatpage.customflatpage.meta_description }}" />
+{% endblock %}
+
+{% block title %}{{ block.super }} | {{ flatpage.customflatpage.meta_title|default:flatpage.title }}{% endblock %}
+
+{% block content %}
+   {{ flatpage.content|safe }}
+{% endblock %}
+
+{% block menu %}
+    <ul class="links">
+        {% if path_bits.0 == 'prices' %}
+            <li{% if not path_bits.1 %} class="active"{% endif %}><a href="/prices/">Программы</a></li>
+            <li{% if path_bits.1 == 'private' %} class="active"{% endif %}><a href="/prices/private/">Индивидуальный урок</a></li>
+            <li{% if path_bits.1 == 'child' %} class="active"{% endif %}><a href="/prices/child/">Обучение детей</a></li>
+            <li{% if path_bits.1 == 'media' %} class="active"{% endif %}><a href="/prices/media/">Фото и видеосъемка</a></li>
+            <li{% if path_bits.1 == 'videocoaching' %} class="active"{% endif %}><a href="/prices/videocoaching/">Видео обучение</a></li>
+            <li{% if path_bits.1 == 'discounts' %} class="active"{% endif %}><a href="/prices/discounts/">Скидки</a></li>
+        {% endif %}
+            <li{% if path_bits.0 == 'reservation' %} class="active"{% endif %}><a href="/reservation/">Бронирование</a></li>
+        </ul>
+{% endblock %}
+
+
+
+
+
+

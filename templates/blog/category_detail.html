@@ -1,0 +1,67 @@
+{% extends "blog/base_blog.html" %}
+
+{% comment %}
+{% block title %}Posts for {{ category.title }}{% endblock %}
+{% block body_id %}category_post_list{% endblock %}
+
+
+{% block content %}
+  {% load markup %}
+  <h2 class="page_title">Posts for {{ category.title }}</h2>
+  
+  <div class="post_list">
+    {% for post in object_list %}
+    <div>
+      <h3 class="title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+      <p class="date">{{ post.publish|date:"Y F d" }}</p>
+      <p class="tease">{{ post.tease }}</p>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}
+{% endcomment %}
+
+
+
+
+{% block content %}
+{% load comments %}
+<ul class="articles">
+    {% for post in object_list %}
+    {% get_comment_count for post as comment_count %}
+    <li>
+    <a href="{{ post.get_absolute_url }}" class="img">
+		{% if post.abstr %}
+		<img src="/media/{{post.abstr}}" alt="{{post.title}}" />
+		{% else %}
+	    {% for photo in post.gallery.sample|slice:sample_size %}
+	    <img src="{{ photo.get_thumbnail_url }}" alt="{{ photo.get_title }}" />
+	    {% endfor %}
+		{% endif %}
+    </a>
+    <div class="article-text">
+        <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+        <p>{{ post.tease }}</p>
+        <a href="{{ post.get_absolute_url }}">читать далее</a>
+        <a href="{{ post.get_absolute_url }}">комментариев {{comment_count}}</a>
+        <a href="{{ post.get_absolute_url }}">{{ post.publish|date:"Y F d" }}</a>
+        </div>
+    </li>
+    {% endfor %}
+</ul>  
+
+
+
+
+  {% if is_paginated %}
+  <p class="pagination">
+    {% if has_next %}
+    <a class="older" href="?page={{ next }}">Older</a>
+    {% endif %}
+    {% if has_next and has_previous %} | {% endif %}
+    {% if has_previous %}
+    <a class="newer" href="?page={{ previous }}">Newer</a>
+    {% endif %}
+  </p>
+  {% endif %}
+{% endblock %}

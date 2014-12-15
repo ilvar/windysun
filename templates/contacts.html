@@ -1,0 +1,31 @@
+{% extends "about.html" %}
+
+{% block title %}{{ block.super }} | Контакты{% endblock %}
+
+{% block content_class %}contacts white serf-img two-column{% endblock %}
+
+{% block menu %}
+    {{ block.super }}
+    {% if page_blocks.contact_links %}
+        {{ page_blocks.contact_links|safe }}
+    {% else %}
+        <ul class="contact-links">
+            <!-- <li class="icq"><a href="http://www.icq.com/whitepages/cmd.php?uin=481031306&action=message" title="icq">481031306</a></li> -->
+            <li class="skype"><a href="skype:surfinsurer" title="skype">surfinsurer</a></li>
+            <li class="email"><a href="mailto:windysun@surfersbali.com" title="email">windysun@surfersbali.com</a></li>
+            <!-- <li class="odnoklassniki"><a href="http://wg126.odnoklassniki.ru/dk;jsessionid=46DE80B11EB0AFD4AC296B0F9CA62EEE.wg126?st.cmd=userMain&tkn=4350#st.cmd=altGroupMain&st.groupId=ofcxukrdbxjteavshfn0rukhbrccpkiozcevwcl" title="Одноклассники">одноклассники</a></li> -->
+            <li class="vkontakte"><a href="http://vkontakte.ru/club14150664" title="В контакте">в контакте</a></li>
+            <li class="facebook"><a href="http://www.facebook.com/surfersbali.ru" title="Facebook">facebook</a></li>
+        </ul>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    {% if flatpage %}
+        {{ flatpage.content|safe }}
+    {% else %}
+        <p><b>Адрес</b><br /> Jalan Pantai Legian / Padma - Kuta - Bali - Indonesia</p>
+        <p><b>Телефон</b><br />+62 81 936 126 701 <br /> +62 8786 167 68 47</p>
+        <p><img src="/media/map3.jpg" width="600px" alt="Расположение серф-школы Windy Sun"/></p>
+    {% endif %}
+{% endblock %}

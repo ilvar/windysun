@@ -1,0 +1,29 @@
+{% extends "about.html" %}
+
+{% block title %}{{ block.super }} | Команда{% endblock %}
+
+{% block content_class %}command white serf-img two-column{% endblock %}
+
+{% block content %}
+    <p>Путешествуя по миру и занимаясь разными видами спорта мы нашли тот, который покорил нас навсегда — это серфинг.</p>
+    <h2><span>{{ member }}</span></h2>
+    <img src="/media/{{ member.avatar }}" alt="" />
+    <h3>{{ member.name }}</h3>
+    <i>{{ member.title }}</i>
+    <p>{{ member.text }}</p>
+    <p class="foot">языки: <span>{% if member.russian %}русский{% endif %} {% if member.english %}английский{% endif %}</span></p>
+    <div>{{ member.big_text|safe }}</div>
+
+    {% if member.gallery.photos.all %}
+        <ul class="photos">
+            {% for photo in member.gallery.photos.all %}
+                <li>
+                    <a href="{{ photo.get_display_url }}" rel="gallery_{{ object.pk }}">
+                        <img src="{{ photo.get_thumbnail_url }}" alt="{{ photo.get_title|default:"Без названия" }}"/>
+                        {% if photo.get_title %}<span>{{ photo.get_title }}</span>{% endif %}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

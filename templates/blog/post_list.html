@@ -1,0 +1,52 @@
+{% extends "blog/base_blog.html" %}
+
+
+{% block content %}
+{% load comments %}
+<ul class="articles">
+    {% for post in object_list %}
+    {% get_comment_count for post as comment_count %}
+    <li>
+    <a href="{{ post.get_absolute_url }}" class="img">
+    {% if post.abstr %}
+    <img src="/media/{{post.abstr}}" alt="{{post.title}}" />
+    {% else %}
+    {% for photo in post.gallery.sample|slice:sample_size %}
+    <img src="{{ photo.get_thumbnail_url }}" alt="{{ photo.get_title }}" />
+    {% endfor %}
+    {% endif %}
+    </a>
+    <div class="article-text">
+        <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+        <p>{{ post.tease }}</p>
+        <a href="{{ post.get_absolute_url }}">читать далее</a>
+        <a href="{{ post.get_absolute_url }}">комментариев {{comment_count}}</a>
+        <a href="{{ post.get_absolute_url }}">{{ post.publish|date:"d.m.Y" }}</a>
+        {{ post.get_share_links }}
+        </div>
+    </li>
+    {% endfor %}
+
+</ul>
+
+{% if is_paginated %}
+<ul class="pages">
+
+    {% if has_previous %}
+    <li><a href="?page={{ previous }}">&#8592; назад</a></li>
+    {% endif %}
+    {% for p in page_range %}
+        {% if p == page %}
+            <li>{{ p }}</li>
+        {% else %}
+            <li><a href="?page={{ p }}">{{ p }}</a></li>
+        {% endif %}
+    {% endfor %}
+    {% if has_next %}
+    <li><a href="?page={{ next }}">вперед &#8594;</a></li>
+    {% endif %}
+
+</ul>
+{% endif %}
+
+{% endblock %}
